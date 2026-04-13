@@ -43,6 +43,8 @@ nav{position:fixed;top:0;width:100%;padding:20px 40px;display:flex;justify-conte
 .nav-links a:hover{color:var(--green)}
 .nav-cta{padding:8px 20px;border:1px solid var(--green);border-radius:6px;color:var(--green);font-size:13px;font-weight:600;transition:all .2s}
 .nav-cta:hover{background:var(--green);color:var(--bg)}
+.lang-toggle{position:relative;padding:6px 14px;background:transparent;color:var(--text-dim);border:1px solid var(--border);border-radius:6px;font-size:12px;font-weight:600;font-family:var(--mono);cursor:pointer;transition:all .2s;letter-spacing:1px;margin-left:12px}
+.lang-toggle:hover{border-color:var(--green);color:var(--green)}
 
 /* Hero */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:140px 40px 80px;max-width:1200px;margin:0 auto}
@@ -139,6 +141,7 @@ footer{padding:32px 40px;border-top:1px solid var(--border);text-align:center;fo
 @media(max-width:768px){
 nav{padding:16px 20px}
 .nav-links{display:none}
+.nav-cta{display:none}
 .hero{padding:120px 20px 60px}
 .hero h1{font-size:36px}
 .stats{padding:40px 20px}
@@ -175,80 +178,81 @@ nav{padding:16px 20px}
 ARGUS
 </div>
 <div class="nav-links">
-<a href="#stats">Evidence</a>
-<a href="#how">How It Works</a>
-<a href="#report">Report</a>
+<a href="#stats" data-i18n="nav.evidence">Evidence</a>
+<a href="#how" data-i18n="nav.how">How It Works</a>
+<a href="#report" data-i18n="nav.report">Report</a>
 <a href="https://github.com/HeadyZhang/agent-audit" target="_blank">GitHub</a>
 </div>
-<a href="https://github.com/HeadyZhang/agent-audit" target="_blank" class="nav-cta">Get Free Scan →</a>
+<a href="https://github.com/HeadyZhang/agent-audit" target="_blank" class="nav-cta" data-i18n="nav.cta">Get Free Scan →</a>
+<button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
-<div class="hero-badge"><span class="dot"></span>120+ Detection Rules · OWASP Agentic Top 10</div>
-<h1>Your Agents.<br><span>Verified Secure.</span></h1>
-<p>Independent security audit and compliance certification for AI agents. One scan. Full report. Enterprise-ready.</p>
+<div class="hero-badge"><span class="dot"></span><span data-i18n="hero.badge">120+ Detection Rules · OWASP Agentic Top 10</span></div>
+<h1 data-i18n="hero.title" data-i18n-html="true">Your Agents.<br><span>Verified Secure.</span></h1>
+<p data-i18n="hero.desc">Independent security audit and compliance certification for AI agents. One scan. Full report. Enterprise-ready.</p>
 <div class="hero-btns">
 <a href="https://github.com/HeadyZhang/agent-audit" target="_blank" class="btn-primary">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-Get Free Scan
+<span data-i18n="hero.scan">Get Free Scan</span>
 </a>
-<a href="#report" class="btn-secondary">View Sample Report →</a>
+<a href="#report" class="btn-secondary" data-i18n="hero.report">View Sample Report →</a>
 </div>
 </section>
 
 <!-- Stats -->
 <section class="stats" id="stats">
 <div class="stats-inner fade-in">
-<div class="stats-label">The Agent Security Gap</div>
-<div class="stats-headline">We scanned the ecosystem. Every project failed.</div>
+<div class="stats-label" data-i18n="stats.label">The Agent Security Gap</div>
+<div class="stats-headline" data-i18n="stats.headline">We scanned the ecosystem. Every project failed.</div>
 <div class="stats-grid">
 <div class="stat-card">
 <div class="stat-num">115</div>
-<div class="stat-label">Open-source agent projects scanned</div>
+<div class="stat-label" data-i18n="stats.s1">Open-source agent projects scanned</div>
 </div>
 <div class="stat-card">
 <div class="stat-num">5,283</div>
-<div class="stat-label">Security findings detected</div>
+<div class="stat-label" data-i18n="stats.s2">Security findings detected</div>
 </div>
 <div class="stat-card">
 <div class="stat-num">100%</div>
-<div class="stat-label">Projects with critical vulnerabilities</div>
+<div class="stat-label" data-i18n="stats.s3">Projects with critical vulnerabilities</div>
 </div>
 </div>
-<div class="stats-footnote">Traditional security tools (Semgrep, Bandit) detect <strong>zero</strong> agent-specific vulnerabilities on the same codebases. Tested across CrewAI, LangGraph, AutoGen, and 20+ other frameworks.</div>
+<div class="stats-footnote" data-i18n="stats.footnote" data-i18n-html="true">Traditional security tools (Semgrep, Bandit) detect <strong>zero</strong> agent-specific vulnerabilities on the same codebases. Tested across CrewAI, LangGraph, AutoGen, and 20+ other frameworks.</div>
 </div>
 </section>
 
 <!-- How it works -->
 <section class="how" id="how">
 <div class="fade-in">
-<div class="section-tag">How Argus Works</div>
-<div class="section-title">Scan. Report. Certify.</div>
+<div class="section-tag" data-i18n="how.tag">How Argus Works</div>
+<div class="section-title" data-i18n="how.title">Scan. Report. Certify.</div>
 <div class="how-grid">
 <div class="how-card">
-<div class="how-step">01 — SCAN</div>
+<div class="how-step" data-i18n="how.step1">01 — SCAN</div>
 <div class="how-icon">
 <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
 </div>
-<h3>Detect</h3>
-<p>One command scans your agent code. 120+ detection rules covering prompt injection, insecure tool use, credential exposure, and all OWASP Agentic Top 10 categories.</p>
+<h3 data-i18n="how.h1">Detect</h3>
+<p data-i18n="how.p1">One command scans your agent code. 120+ detection rules covering prompt injection, insecure tool use, credential exposure, and all OWASP Agentic Top 10 categories.</p>
 </div>
 <div class="how-card">
-<div class="how-step">02 — REPORT</div>
+<div class="how-step" data-i18n="how.step2">02 — REPORT</div>
 <div class="how-icon">
 <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
 </div>
-<h3>Report</h3>
-<p>Branded PDF audit report with severity ratings, OWASP compliance matrix, code evidence, remediation roadmap, and executive summary.</p>
+<h3 data-i18n="how.h2">Report</h3>
+<p data-i18n="how.p2">Branded PDF audit report with severity ratings, OWASP compliance matrix, code evidence, remediation roadmap, and executive summary.</p>
 </div>
 <div class="how-card">
-<div class="how-step">03 — CERTIFY</div>
+<div class="how-step" data-i18n="how.step3">03 — CERTIFY</div>
 <div class="how-icon">
 <svg viewBox="0 0 24 24"><path d="M12 2L4 7v5c0 6.55 3.42 12.74 8 14 4.58-1.26 8-7.45 8-14V7l-8-5z"/></svg>
 </div>
-<h3>Certify</h3>
-<p>Independent third-party security certification. The trust signal your enterprise customers require before deploying your agent in production.</p>
+<h3 data-i18n="how.h3">Certify</h3>
+<p data-i18n="how.p3">Independent third-party security certification. The trust signal your enterprise customers require before deploying your agent in production.</p>
 </div>
 </div>
 </div>
@@ -257,8 +261,8 @@ Get Free Scan
 <!-- Credibility -->
 <section class="cred" id="cred">
 <div class="cred-inner fade-in">
-<div class="section-tag">Trusted by the Ecosystem</div>
-<div class="section-title">Vulnerabilities Filed With</div>
+<div class="section-tag" data-i18n="cred.tag">Trusted by the Ecosystem</div>
+<div class="section-title" data-i18n="cred.title">Vulnerabilities Filed With</div>
 <div class="cred-row">
 <div class="cred-badge">Microsoft AutoGen</div>
 <div class="cred-badge">AWS MCP</div>
@@ -270,9 +274,9 @@ Get Free Scan
 <div class="cred-badge">DataStax Langflow</div>
 </div>
 <div class="cred-pubs">
-<div class="cred-pub"><span class="dot-green"></span>ACL 2026 — Published</div>
-<div class="cred-pub"><span class="dot-yellow"></span>NeurIPS 2026 — In Review</div>
-<div class="cred-pub"><span class="dot-green"></span>OWASP Agentic Top 10 — Aligned</div>
+<div class="cred-pub"><span class="dot-green"></span><span data-i18n="cred.pub1">ACL 2026 — Published</span></div>
+<div class="cred-pub"><span class="dot-yellow"></span><span data-i18n="cred.pub2">NeurIPS 2026 — In Review</span></div>
+<div class="cred-pub"><span class="dot-green"></span><span data-i18n="cred.pub3">OWASP Agentic Top 10 — Aligned</span></div>
 </div>
 </div>
 </section>
@@ -283,12 +287,12 @@ Get Free Scan
 <div class="report-mockup">
 <div class="report-header">
 <svg class="report-logo-sm" viewBox="0 0 32 32" fill="none"><path d="M16 2L4 8v8c0 7.73 5.12 14.96 12 16 6.88-1.04 12-8.27 12-16V8L16 2z" stroke="#00ff88" stroke-width="1.5" fill="rgba(0,255,136,0.08)"/><circle cx="16" cy="14" r="3" stroke="#00ff88" stroke-width="1.5"/></svg>
-<span class="report-title-sm">ARGUS AUDIT REPORT</span>
+<span class="report-title-sm" data-i18n="report.badge">ARGUS AUDIT REPORT</span>
 </div>
 <div class="report-project">MedAgent Pro</div>
-<div class="report-meta">ARGUS-2026-0042 · 2026-04-11 · 22 pages · CONFIDENTIAL</div>
+<div class="report-meta" data-i18n="report.meta">ARGUS-2026-0042 · 2026-04-11 · 22 pages · CONFIDENTIAL</div>
 <div class="report-grade grade-c">C</div>
-<div style="font-size:13px;color:var(--text-dim);margin-bottom:20px">Overall Security Rating — Significant concerns identified</div>
+<div style="font-size:13px;color:var(--text-dim);margin-bottom:20px" data-i18n="report.rating">Overall Security Rating — Significant concerns identified</div>
 <div class="report-findings">
 <div class="finding-pill f-crit">2 CRIT</div>
 <div class="finding-pill f-high">3 HIGH</div>
@@ -298,14 +302,14 @@ Get Free Scan
 </div>
 </div>
 <div class="report-text">
-<h3>What You Get</h3>
-<p>A 22-page branded security audit report that your CISO, VP Engineering, or enterprise customer can trust.</p>
+<h3 data-i18n="report.h">What You Get</h3>
+<p data-i18n="report.p">A 22-page branded security audit report that your CISO, VP Engineering, or enterprise customer can trust.</p>
 <ul class="report-features">
-<li>Executive summary with A-F security rating</li>
-<li>Detailed findings with code evidence and attack scenarios</li>
-<li>OWASP Agentic Top 10 compliance matrix</li>
-<li>Prioritized remediation roadmap</li>
-<li>Methodology and severity definitions</li>
+<li data-i18n="report.f1">Executive summary with A-F security rating</li>
+<li data-i18n="report.f2">Detailed findings with code evidence and attack scenarios</li>
+<li data-i18n="report.f3">OWASP Agentic Top 10 compliance matrix</li>
+<li data-i18n="report.f4">Prioritized remediation roadmap</li>
+<li data-i18n="report.f5">Methodology and severity definitions</li>
 </ul>
 </div>
 </div>
@@ -314,23 +318,23 @@ Get Free Scan
 <!-- CTA -->
 <section class="cta" id="contact">
 <div class="cta-inner fade-in">
-<h2>Secure Your Agents Today</h2>
-<p>Free scan for open-source projects. Enterprise audit with branded report and compliance mapping.</p>
+<h2 data-i18n="cta.h">Secure Your Agents Today</h2>
+<p data-i18n="cta.p">Free scan for open-source projects. Enterprise audit with branded report and compliance mapping.</p>
 <div class="hero-btns" style="justify-content:center">
-<a href="https://github.com/HeadyZhang/agent-audit" target="_blank" class="btn-primary">Get Started on GitHub →</a>
+<a href="https://github.com/HeadyZhang/agent-audit" target="_blank" class="btn-primary" data-i18n="cta.btn">Get Started on GitHub →</a>
 </div>
-<div class="cta-price">Enterprise audit starting at $5,000 · Free for open-source</div>
+<div class="cta-price" data-i18n="cta.price">Enterprise audit starting at $5,000 · Free for open-source</div>
 <div class="contact-row">
 <div class="contact-item"><span>Email</span> haiyuez@usc.edu</div>
 <div class="contact-item"><span>GitHub</span> agent-audit</div>
-<div class="contact-item"><span>WeChat</span> real_heady</div>
+<div class="contact-item"><span data-i18n="cta.wechat">WeChat</span> real_heady</div>
 </div>
 </div>
 </section>
 
 <!-- Footer -->
 <footer>
-<p>© 2026 Argus Security · Backed by research from USC, CMU, and AWS · All rights reserved.</p>
+<p data-i18n="footer">© 2026 Argus Security · Backed by research from USC, CMU, and AWS · All rights reserved.</p>
 </footer>
 
 <script>
@@ -362,6 +366,82 @@ nums[2].textContent = '100%';
 });
 }, {threshold: 0.3});
 statObserver.observe(document.querySelector('.stats-grid'));
+
+// i18n
+const i18n = {
+  zh: {
+    'nav.evidence': '数据',
+    'nav.how': '工作原理',
+    'nav.report': '报告',
+    'nav.cta': '免费扫描 →',
+    'hero.badge': '120+ 检测规则 · OWASP Agentic Top 10',
+    'hero.title': '你的 Agent，<br><span>安全可信。</span>',
+    'hero.desc': '面向 AI Agent 的独立安全审计与合规认证。一次扫描，完整报告，企业级交付。',
+    'hero.scan': '免费扫描',
+    'hero.report': '查看示例报告 →',
+    'stats.label': 'Agent 安全现状',
+    'stats.headline': '我们扫描了整个生态，所有项目均未通过。',
+    'stats.s1': '已扫描的开源 Agent 项目',
+    'stats.s2': '检测到的安全问题',
+    'stats.s3': '存在严重漏洞的项目比例',
+    'stats.footnote': '传统安全工具（Semgrep、Bandit）在相同代码库上检测到的 Agent 特定漏洞数量为<strong>零</strong>。已在 CrewAI、LangGraph、AutoGen 等 20+ 框架上测试验证。',
+    'how.tag': 'Argus 工作原理',
+    'how.title': '扫描 · 报告 · 认证',
+    'how.step1': '01 — 扫描',
+    'how.h1': '检测',
+    'how.p1': '一条命令扫描你的 Agent 代码。120+ 检测规则覆盖提示注入、不安全工具调用、凭证泄露，以及 OWASP Agentic Top 10 全部类别。',
+    'how.step2': '02 — 报告',
+    'how.h2': '报告',
+    'how.p2': '品牌化 PDF 审计报告，包含严重性评级、OWASP 合规矩阵、代码证据、修复路线图和执行摘要。',
+    'how.step3': '03 — 认证',
+    'how.h3': '认证',
+    'how.p3': '独立第三方安全认证。这是你的企业客户在生产环境部署 Agent 之前所需的信任凭证。',
+    'cred.tag': '受生态信赖',
+    'cred.title': '已向以下项目提交漏洞',
+    'cred.pub1': 'ACL 2026 — 已发表',
+    'cred.pub2': 'NeurIPS 2026 — 审稿中',
+    'cred.pub3': 'OWASP Agentic Top 10 — 已对齐',
+    'report.badge': 'ARGUS 审计报告',
+    'report.meta': 'ARGUS-2026-0042 · 2026-04-11 · 22 页 · 机密',
+    'report.rating': '综合安全评级 — 发现重大安全隐患',
+    'report.h': '你将获得',
+    'report.p': '一份 22 页品牌化安全审计报告，你的 CISO、工程 VP 或企业客户可以直接采信。',
+    'report.f1': '包含 A-F 安全评级的执行摘要',
+    'report.f2': '附带代码证据和攻击场景的详细发现',
+    'report.f3': 'OWASP Agentic Top 10 合规矩阵',
+    'report.f4': '按优先级排列的修复路线图',
+    'report.f5': '审计方法论与严重性定义',
+    'cta.h': '立即保障你的 Agent 安全',
+    'cta.p': '开源项目免费扫描。企业审计提供品牌化报告与合规映射。',
+    'cta.btn': '前往 GitHub 开始使用 →',
+    'cta.price': '企业审计起价 $5,000 · 开源项目免费',
+    'cta.wechat': '微信',
+    'footer': '© 2026 Argus Security · 基于 USC、CMU 和 AWS 的研究成果 · 保留所有权利。'
+  }
+};
+
+let currentLang = 'en';
+const enCache = {};
+
+document.querySelectorAll('[data-i18n]').forEach(function(el) {
+  const key = el.getAttribute('data-i18n');
+  enCache[key] = el.getAttribute('data-i18n-html') === 'true' ? el.innerHTML : el.textContent;
+});
+
+document.getElementById('langToggle').addEventListener('click', function() {
+  currentLang = currentLang === 'en' ? 'zh' : 'en';
+  this.textContent = currentLang === 'en' ? 'EN' : '中文';
+  document.documentElement.lang = currentLang === 'en' ? 'en' : 'zh-CN';
+
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    const key = el.getAttribute('data-i18n');
+    const useHtml = el.getAttribute('data-i18n-html') === 'true';
+    const text = currentLang === 'zh' ? i18n.zh[key] : enCache[key];
+    if (text) {
+      if (useHtml) { el.innerHTML = text; } else { el.textContent = text; }
+    }
+  });
+});
 </script>
 </body>
 </html>
