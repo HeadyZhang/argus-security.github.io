@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Argus — AI Agent Security Audit</title>
+<meta name="description" content="Independent security audit and compliance certification for AI agents. 120+ detection rules. OWASP Agentic Top 10 coverage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#060b14;--bg2:#0a1120;--bg3:#0f1729;
+--green:#00ff88;--green-dim:#00cc6a;--green-glow:rgba(0,255,136,0.15);
+--red:#ff4444;--orange:#ff8c00;--yellow:#ffcc00;--blue:#4488ff;
+--text:#e8edf5;--text-dim:#8892a4;--text-muted:#4a5568;
+--border:#1a2744;
+--font:'Space Grotesk',sans-serif;--mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:var(--green);text-decoration:none;transition:opacity .2s}
+a:hover{opacity:.8}
+
+/* Grid background */
+.grid-bg{position:fixed;top:0;left:0;width:100%;height:100%;
+background-image:linear-gradient(rgba(0,255,136,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,0.03) 1px,transparent 1px);
+background-size:60px 60px;pointer-events:none;z-index:0}
+
+/* Glow orbs */
+.glow-orb{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
+.glow-1{width:600px;height:600px;background:rgba(0,255,136,0.06);top:-200px;right:-200px}
+.glow-2{width:400px;height:400px;background:rgba(0,100,255,0.04);bottom:20%;left:-100px}
+
+section{position:relative;z-index:1}
+
+/* Nav */
+nav{position:fixed;top:0;width:100%;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(6,11,20,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:3px}
+.logo svg{width:32px;height:32px}
+.nav-links{display:flex;gap:28px;font-size:14px;font-weight:500}
+.nav-links a{color:var(--text-dim);transition:color .2s}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{padding:8px 20px;border:1px solid var(--green);border-radius:6px;color:var(--green);font-size:13px;font-weight:600;transition:all .2s}
+.nav-cta:hover{background:var(--green);color:var(--bg)}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:140px 40px 80px;max-width:1200px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid var(--border);border-radius:100px;font-size:12px;color:var(--text-dim);margin-bottom:32px;width:fit-content;font-family:var(--mono)}
+.hero-badge .dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(40px,6vw,72px);font-weight:700;line-height:1.05;margin-bottom:24px;letter-spacing:-1px}
+.hero h1 span{color:var(--green)}
+.hero p{font-size:18px;color:var(--text-dim);max-width:560px;margin-bottom:40px;line-height:1.7}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{padding:14px 32px;background:var(--green);color:var(--bg);font-weight:600;font-size:15px;border-radius:8px;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--green-dim);transform:translateY(-1px);color:var(--bg)}
+.btn-secondary{padding:14px 32px;background:transparent;color:var(--green);font-weight:600;font-size:15px;border-radius:8px;border:1px solid rgba(0,255,136,0.3);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-secondary:hover{border-color:var(--green);background:var(--green-glow)}
+
+/* Stats */
+.stats{padding:60px 40px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2)}
+.stats-inner{max-width:1200px;margin:0 auto}
+.stats-label{font-size:13px;color:var(--text-muted);text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:12px;font-family:var(--mono)}
+.stats-headline{font-size:28px;font-weight:600;margin-bottom:48px;color:var(--text)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.stat-card{padding:32px;border:1px solid var(--border);border-radius:12px;background:var(--bg3);transition:border-color .3s}
+.stat-card:hover{border-color:rgba(0,255,136,0.3)}
+.stat-num{font-size:48px;font-weight:700;color:var(--green);font-family:var(--mono);line-height:1}
+.stat-label{font-size:14px;color:var(--text-dim);margin-top:8px}
+.stats-footnote{margin-top:32px;font-size:13px;color:var(--text-muted);padding:16px 20px;border-left:2px solid var(--red);background:rgba(255,68,68,0.05);border-radius:0 8px 8px 0}
+
+/* How it works */
+.how{padding:100px 40px;max-width:1200px;margin:0 auto}
+.section-tag{font-size:12px;text-transform:uppercase;letter-spacing:3px;color:var(--green);font-weight:600;margin-bottom:12px;font-family:var(--mono)}
+.section-title{font-size:36px;font-weight:700;margin-bottom:60px}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.how-card{padding:36px;border:1px solid var(--border);border-radius:12px;background:var(--bg2);transition:all .3s;position:relative;overflow:hidden}
+.how-card:hover{border-color:rgba(0,255,136,0.3);transform:translateY(-4px)}
+.how-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--green);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.how-card:hover::before{transform:scaleX(1)}
+.how-step{font-size:11px;color:var(--green);font-family:var(--mono);font-weight:600;letter-spacing:2px;margin-bottom:16px}
+.how-icon{width:48px;height:48px;border-radius:10px;background:var(--green-glow);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.how-icon svg{width:24px;height:24px;stroke:var(--green);fill:none;stroke-width:1.5}
+.how-card h3{font-size:20px;font-weight:600;margin-bottom:12px}
+.how-card p{font-size:14px;color:var(--text-dim);line-height:1.7}
+
+/* Credibility */
+.cred{padding:80px 40px;border-top:1px solid var(--border);background:var(--bg2)}
+.cred-inner{max-width:1200px;margin:0 auto;text-align:center}
+.cred-inner .section-tag,.cred-inner .section-title{text-align:center}
+.cred-row{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:32px}
+.cred-badge{padding:10px 20px;border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--text-dim);font-weight:500;background:var(--bg3);transition:all .2s}
+.cred-badge:hover{border-color:rgba(0,255,136,0.3);color:var(--text)}
+.cred-pubs{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:40px}
+.cred-pub{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted);font-family:var(--mono)}
+.cred-pub .dot-green{width:6px;height:6px;background:var(--green);border-radius:50%}
+.cred-pub .dot-yellow{width:6px;height:6px;background:var(--yellow);border-radius:50%}
+
+/* Report preview */
+.report{padding:100px 40px;max-width:1200px;margin:0 auto}
+.report-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.report-mockup{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:40px;position:relative;overflow:hidden}
+.report-mockup::after{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(0,255,136,0.08),transparent);pointer-events:none}
+.report-header{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.report-logo-sm{width:24px;height:24px}
+.report-title-sm{font-size:11px;color:var(--green);font-family:var(--mono);letter-spacing:2px;font-weight:600}
+.report-project{font-size:24px;font-weight:700;margin-bottom:8px}
+.report-meta{font-size:12px;color:var(--text-muted);font-family:var(--mono);margin-bottom:24px}
+.report-grade{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;font-size:28px;font-weight:700;margin-bottom:20px}
+.grade-c{border:3px solid var(--orange);color:var(--orange)}
+.report-findings{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:20px}
+.finding-pill{text-align:center;padding:8px 4px;border-radius:6px;font-size:11px;font-family:var(--mono);font-weight:600}
+.f-crit{background:rgba(255,68,68,0.15);color:var(--red)}
+.f-high{background:rgba(255,140,0,0.15);color:var(--orange)}
+.f-med{background:rgba(255,204,0,0.15);color:var(--yellow)}
+.f-low{background:rgba(68,136,255,0.15);color:var(--blue)}
+.f-info{background:rgba(136,146,164,0.1);color:var(--text-muted)}
+.report-text h3{font-size:28px;font-weight:700;margin-bottom:16px}
+.report-text p{color:var(--text-dim);font-size:15px;line-height:1.8;margin-bottom:24px}
+.report-features{list-style:none}
+.report-features li{font-size:14px;color:var(--text-dim);padding:6px 0;display:flex;align-items:center;gap:10px}
+.report-features li::before{content:'→';color:var(--green);font-weight:700}
+
+/* CTA */
+.cta{padding:100px 40px;text-align:center;border-top:1px solid var(--border)}
+.cta-inner{max-width:600px;margin:0 auto}
+.cta h2{font-size:36px;font-weight:700;margin-bottom:16px}
+.cta p{color:var(--text-dim);font-size:16px;margin-bottom:40px}
+.cta-price{font-size:13px;color:var(--text-muted);margin-top:24px;font-family:var(--mono)}
+.contact-row{display:flex;justify-content:center;gap:32px;margin-top:40px;flex-wrap:wrap}
+.contact-item{font-size:13px;color:var(--text-muted);font-family:var(--mono)}
+.contact-item span{color:var(--text-dim)}
+
+/* Footer */
+footer{padding:32px 40px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--text-muted)}
+
+/* Responsive */
+@media(max-width:768px){
+nav{padding:16px 20px}
+.nav-links{display:none}
+.hero{padding:120px 20px 60px}
+.hero h1{font-size:36px}
+.stats{padding:40px 20px}
+.stats-grid{grid-template-columns:1fr}
+.how{padding:60px 20px}
+.how-grid{grid-template-columns:1fr}
+.report{padding:60px 20px}
+.report-grid{grid-template-columns:1fr}
+.cred-row{flex-direction:column;align-items:center}
+.cta{padding:60px 20px}
+.hero-btns{flex-direction:column}
+.btn-primary,.btn-secondary{width:100%;justify-content:center}
+}
+
+/* Fade in animation */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="glow-orb glow-1"></div>
+<div class="glow-orb glow-2"></div>
+
+<!-- Nav -->
+<nav>
+<div class="logo">
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 2L4 8v8c0 7.73 5.12 14.96 12 16 6.88-1.04 12-8.27 12-16V8L16 2z" stroke="#00ff88" stroke-width="1.5" fill="rgba(0,255,136,0.08)"/>
+<circle cx="16" cy="14" r="4" stroke="#00ff88" stroke-width="1.5" fill="none"/>
+<path d="M16 18v3" stroke="#00ff88" stroke-width="1.5"/>
+</svg>
+ARGUS
+</div>
+<div class="nav-links">
+<a href="#stats">Evidence</a>
+<a href="#how">How It Works</a>
+<a href="#report">Report</a>
+<a href="https://github.com/HeadyZhang/agent-audit" target="_blank">GitHub</a>
+</div>
+<a href="https://github.com/HeadyZhang/agent-audit" target="_blank" class="nav-cta">Get Free Scan →</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+<div class="hero-badge"><span class="dot"></span>120+ Detection Rules · OWASP Agentic Top 10</div>
+<h1>Your Agents.<br><span>Verified Secure.</span></h1>
+<p>Independent security audit and compliance certification for AI agents. One scan. Full report. Enterprise-ready.</p>
+<div class="hero-btns">
+<a href="https://github.com/HeadyZhang/agent-audit" target="_blank" class="btn-primary">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+Get Free Scan
+</a>
+<a href="#report" class="btn-secondary">View Sample Report →</a>
+</div>
+</section>
+
+<!-- Stats -->
+<section class="stats" id="stats">
+<div class="stats-inner fade-in">
+<div class="stats-label">The Agent Security Gap</div>
+<div class="stats-headline">We scanned the ecosystem. Every project failed.</div>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-num">115</div>
+<div class="stat-label">Open-source agent projects scanned</div>
+</div>
+<div class="stat-card">
+<div class="stat-num">5,283</div>
+<div class="stat-label">Security findings detected</div>
+</div>
+<div class="stat-card">
+<div class="stat-num">100%</div>
+<div class="stat-label">Projects with critical vulnerabilities</div>
+</div>
+</div>
+<div class="stats-footnote">Traditional security tools (Semgrep, Bandit) detect <strong>zero</strong> agent-specific vulnerabilities on the same codebases. Tested across CrewAI, LangGraph, AutoGen, and 20+ other frameworks.</div>
+</div>
+</section>
+
+<!-- How it works -->
+<section class="how" id="how">
+<div class="fade-in">
+<div class="section-tag">How Argus Works</div>
+<div class="section-title">Scan. Report. Certify.</div>
+<div class="how-grid">
+<div class="how-card">
+<div class="how-step">01 — SCAN</div>
+<div class="how-icon">
+<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+</div>
+<h3>Detect</h3>
+<p>One command scans your agent code. 120+ detection rules covering prompt injection, insecure tool use, credential exposure, and all OWASP Agentic Top 10 categories.</p>
+</div>
+<div class="how-card">
+<div class="how-step">02 — REPORT</div>
+<div class="how-icon">
+<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+</div>
+<h3>Report</h3>
+<p>Branded PDF audit report with severity ratings, OWASP compliance matrix, code evidence, remediation roadmap, and executive summary.</p>
+</div>
+<div class="how-card">
+<div class="how-step">03 — CERTIFY</div>
+<div class="how-icon">
+<svg viewBox="0 0 24 24"><path d="M12 2L4 7v5c0 6.55 3.42 12.74 8 14 4.58-1.26 8-7.45 8-14V7l-8-5z"/></svg>
+</div>
+<h3>Certify</h3>
+<p>Independent third-party security certification. The trust signal your enterprise customers require before deploying your agent in production.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Credibility -->
+<section class="cred" id="cred">
+<div class="cred-inner fade-in">
+<div class="section-tag">Trusted by the Ecosystem</div>
+<div class="section-title">Vulnerabilities Filed With</div>
+<div class="cred-row">
+<div class="cred-badge">Microsoft AutoGen</div>
+<div class="cred-badge">AWS MCP</div>
+<div class="cred-badge">ByteDance</div>
+<div class="cred-badge">CrewAI</div>
+<div class="cred-badge">LangGraph</div>
+<div class="cred-badge">Pydantic AI</div>
+<div class="cred-badge">Coinbase x402</div>
+<div class="cred-badge">DataStax Langflow</div>
+</div>
+<div class="cred-pubs">
+<div class="cred-pub"><span class="dot-green"></span>ACL 2026 — Published</div>
+<div class="cred-pub"><span class="dot-yellow"></span>NeurIPS 2026 — In Review</div>
+<div class="cred-pub"><span class="dot-green"></span>OWASP Agentic Top 10 — Aligned</div>
+</div>
+</div>
+</section>
+
+<!-- Report Preview -->
+<section class="report" id="report">
+<div class="report-grid fade-in">
+<div class="report-mockup">
+<div class="report-header">
+<svg class="report-logo-sm" viewBox="0 0 32 32" fill="none"><path d="M16 2L4 8v8c0 7.73 5.12 14.96 12 16 6.88-1.04 12-8.27 12-16V8L16 2z" stroke="#00ff88" stroke-width="1.5" fill="rgba(0,255,136,0.08)"/><circle cx="16" cy="14" r="3" stroke="#00ff88" stroke-width="1.5"/></svg>
+<span class="report-title-sm">ARGUS AUDIT REPORT</span>
+</div>
+<div class="report-project">MedAgent Pro</div>
+<div class="report-meta">ARGUS-2026-0042 · 2026-04-11 · 22 pages · CONFIDENTIAL</div>
+<div class="report-grade grade-c">C</div>
+<div style="font-size:13px;color:var(--text-dim);margin-bottom:20px">Overall Security Rating — Significant concerns identified</div>
+<div class="report-findings">
+<div class="finding-pill f-crit">2 CRIT</div>
+<div class="finding-pill f-high">3 HIGH</div>
+<div class="finding-pill f-med">4 MED</div>
+<div class="finding-pill f-low">2 LOW</div>
+<div class="finding-pill f-info">1 INFO</div>
+</div>
+</div>
+<div class="report-text">
+<h3>What You Get</h3>
+<p>A 22-page branded security audit report that your CISO, VP Engineering, or enterprise customer can trust.</p>
+<ul class="report-features">
+<li>Executive summary with A-F security rating</li>
+<li>Detailed findings with code evidence and attack scenarios</li>
+<li>OWASP Agentic Top 10 compliance matrix</li>
+<li>Prioritized remediation roadmap</li>
+<li>Methodology and severity definitions</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+<div class="cta-inner fade-in">
+<h2>Secure Your Agents Today</h2>
+<p>Free scan for open-source projects. Enterprise audit with branded report and compliance mapping.</p>
+<div class="hero-btns" style="justify-content:center">
+<a href="https://github.com/HeadyZhang/agent-audit" target="_blank" class="btn-primary">Get Started on GitHub →</a>
+</div>
+<div class="cta-price">Enterprise audit starting at $5,000 · Free for open-source</div>
+<div class="contact-row">
+<div class="contact-item"><span>Email</span> haiyuez@usc.edu</div>
+<div class="contact-item"><span>GitHub</span> agent-audit</div>
+<div class="contact-item"><span>WeChat</span> real_heady</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<p>© 2026 Argus Security · Backed by research from USC, CMU, and AWS · All rights reserved.</p>
+</footer>
+
+<script>
+// Fade in on scroll
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, {threshold: 0.1});
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Smooth number count animation
+function animateNum(el, target, suffix='') {
+let current = 0;
+const step = target / 40;
+const timer = setInterval(() => {
+current += step;
+if(current >= target) { current = target; clearInterval(timer); }
+el.textContent = Math.floor(current).toLocaleString() + suffix;
+}, 30);
+}
+const statObserver = new IntersectionObserver((entries) => {
+entries.forEach(e => {
+if(e.isIntersecting && !e.target.dataset.animated) {
+e.target.dataset.animated = 'true';
+const nums = e.target.querySelectorAll('.stat-num');
+animateNum(nums[0], 115);
+animateNum(nums[1], 5283);
+nums[2].textContent = '100%';
+}
+});
+}, {threshold: 0.3});
+statObserver.observe(document.querySelector('.stats-grid'));
+</script>
+</body>
+</html>
