@@ -80,7 +80,7 @@ section{position:relative;z-index:1}
 /* Nav — CrowdStrike-style solid with Vercel restraint */
 nav{position:fixed;top:0;width:100%;height:64px;padding:0 40px;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(8,9,13,0.92);backdrop-filter:blur(24px) saturate(1.2);border-bottom:1px solid var(--border)}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;letter-spacing:4px;color:var(--text)}
-.logo svg{width:28px;height:28px}
+.logo svg,.logo img{width:28px;height:28px;border-radius:6px;display:block}
 .nav-links{display:flex;gap:32px;font-size:13px;font-weight:500;letter-spacing:0.01em}
 .nav-links a{color:var(--text-dim);transition:color .2s ease}
 .nav-links a:hover{color:var(--text)}
@@ -269,11 +269,7 @@ nav{padding:0 20px}
 <!-- Nav -->
 <nav>
 <div class="logo">
-<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M16 2L4 8v8c0 7.73 5.12 14.96 12 16 6.88-1.04 12-8.27 12-16V8L16 2z" stroke="#00ff88" stroke-width="1.5" fill="rgba(0,255,136,0.08)"/>
-<circle cx="16" cy="14" r="4" stroke="#00ff88" stroke-width="1.5" fill="none"/>
-<path d="M16 18v3" stroke="#00ff88" stroke-width="1.5"/>
-</svg>
+<img src="Argus_logo.png" alt="Argus" />
 ARGUS
 </div>
 <div class="nav-links">
@@ -462,7 +458,7 @@ ARGUS
 <div class="report-grid fade-in">
 <div class="report-mockup">
 <div class="report-header">
-<svg class="report-logo-sm" viewBox="0 0 32 32" fill="none"><path d="M16 2L4 8v8c0 7.73 5.12 14.96 12 16 6.88-1.04 12-8.27 12-16V8L16 2z" stroke="#00ff88" stroke-width="1.5" fill="rgba(0,255,136,0.08)"/><circle cx="16" cy="14" r="3" stroke="#00ff88" stroke-width="1.5"/></svg>
+<img class="report-logo-sm" src="Argus_logo.png" alt="Argus" style="border-radius:4px" />
 <span class="report-title-sm" data-i18n="report.badge">ARGUS AUDIT REPORT</span>
 </div>
 <div class="report-project">MedAgent Pro</div>
