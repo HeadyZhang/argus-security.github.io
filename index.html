@@ -3,8 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Argus — AI Agent Security Audit</title>
-<meta name="description" content="Independent security audit and compliance certification for AI agents. 120+ detection rules. OWASP Agentic Top 10 coverage.">
+<title>Argus Security — Independent Compliance Certification for AI Agents</title>
+<meta name="description" content="Independent security audit and compliance certification body for AI agents. Deterministic static analysis. 120+ detection rules. OWASP Agentic Top 10 aligned.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Argus Security, Inc.",
+  "url": "https://argus-security.dev",
+  "description": "Independent compliance certification body for AI agents",
+  "foundingDate": "2026-04",
+  "founders": [
+    {"@type": "Person", "name": "Heady Zhang", "jobTitle": "CEO"},
+    {"@type": "Person", "name": "Justin Yuan", "jobTitle": "CTO"}
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "heady@argus-security.dev"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -168,8 +186,48 @@ nav{position:fixed;top:0;width:100%;height:64px;padding:0 40px;display:flex;just
 .contact-item{font-size:12px;color:var(--text-muted);font-family:var(--mono);letter-spacing:0.02em}
 .contact-item span{color:var(--text-dim);margin-right:4px}
 
+/* About — company + team */
+.about{padding:128px 40px;max-width:1200px;margin:0 auto}
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:72px;align-items:start}
+.about-company h3{font-size:22px;font-weight:700;margin-bottom:8px;letter-spacing:-0.02em}
+.about-company .about-meta{font-size:12px;color:var(--text-muted);font-family:var(--mono);letter-spacing:0.04em;margin-bottom:24px}
+.about-company p{font-size:15px;color:var(--text-dim);line-height:1.8;margin-bottom:20px;letter-spacing:-0.005em}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.team-card{padding:28px 24px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface-inner);transition:all .3s ease;display:flex;flex-direction:column}
+.team-card:hover{border-color:var(--border-active);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,0.25)}
+.team-name{font-size:16px;font-weight:700;letter-spacing:-0.01em;margin-bottom:4px}
+.team-title{font-size:11px;color:var(--green);font-family:var(--mono);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.team-bg{font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:6px;letter-spacing:-0.005em}
+.team-detail{font-size:12px;color:var(--text-muted);line-height:1.6;letter-spacing:-0.005em}
+.team-disclaimer{font-size:11px;color:var(--text-muted);margin-top:12px;line-height:1.5;font-style:italic}
+
+/* Traction */
+.traction{padding:128px 40px;max-width:1200px;margin:0 auto;text-align:center}
+.traction .section-tag,.traction .section-title{text-align:center}
+.traction-card{max-width:720px;margin:0 auto 64px;padding:48px 40px;border:1px solid rgba(0,232,123,0.35);border-radius:var(--radius-xl);background:linear-gradient(180deg,rgba(0,232,123,0.04) 0%,var(--surface-inner) 60%);box-shadow:0 24px 64px rgba(0,0,0,0.3),0 0 0 1px rgba(0,232,123,0.1) inset;text-align:left;position:relative;overflow:hidden}
+.traction-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:0.6}
+.traction-card h3{font-size:24px;font-weight:700;margin-bottom:20px;letter-spacing:-0.02em}
+.traction-card p{font-size:14px;color:var(--text-dim);line-height:1.8;margin-bottom:12px;letter-spacing:-0.005em}
+.traction-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto}
+.traction-stat{padding:32px 24px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface-base);transition:all .3s ease}
+.traction-stat:hover{border-color:var(--border-active);background:var(--surface-md);transform:translateY(-2px)}
+.traction-stat .num{font-size:36px;font-weight:700;color:var(--green);font-family:var(--mono);line-height:1;letter-spacing:-0.02em}
+.traction-stat .lbl{font-size:13px;color:var(--text-dim);margin-top:10px;letter-spacing:-0.005em}
+
+/* Vulnerability link icon */
+.cred-badge{display:inline-flex;align-items:center;gap:8px}
+.cred-badge a.cred-link{display:inline-flex;align-items:center;color:var(--text-muted);transition:color .2s ease}
+.cred-badge a.cred-link:hover{color:var(--green)}
+.cred-badge a.cred-link svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}
+.cred-additional{margin-top:24px;font-size:12px;color:var(--text-muted);font-family:var(--mono);letter-spacing:0.02em}
+.cred-additional .lbl{color:var(--text-disabled);text-transform:uppercase;letter-spacing:2px;margin-right:10px}
+
+/* Sample report disclaimer */
+.report-disclaimer{max-width:1200px;margin:32px auto 0;padding:0 40px;font-size:12px;color:var(--text-muted);font-style:italic;text-align:center;letter-spacing:0.01em}
+
 /* Footer — minimal */
 footer{padding:40px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--text-muted);letter-spacing:0.01em;background:var(--bg)}
+footer p{margin:4px 0}
 
 /* Responsive */
 @media(max-width:768px){
@@ -186,6 +244,12 @@ nav{padding:0 20px}
 .report-grid{grid-template-columns:1fr;gap:48px}
 .cred{padding:64px 20px}
 .cred-row{flex-direction:column;align-items:center}
+.about{padding:80px 20px}
+.about-grid{grid-template-columns:1fr;gap:48px}
+.team-grid{grid-template-columns:1fr}
+.traction{padding:80px 20px}
+.traction-card{padding:32px 24px}
+.traction-stats{grid-template-columns:1fr}
 .cta{padding:80px 20px}
 .hero-btns{flex-direction:column}
 .btn-primary,.btn-secondary{width:100%;justify-content:center}
@@ -215,6 +279,8 @@ ARGUS
 <div class="nav-links">
 <a href="#stats" data-i18n="nav.evidence">Evidence</a>
 <a href="#how" data-i18n="nav.how">How It Works</a>
+<a href="#about" data-i18n="nav.about">About</a>
+<a href="#traction" data-i18n="nav.traction">Traction</a>
 <a href="#report" data-i18n="nav.report">Report</a>
 <a href="blog/" data-i18n="nav.blog">Blog</a>
 <a href="https://github.com/HeadyZhang/agent-audit" target="_blank">GitHub</a>
@@ -294,24 +360,98 @@ ARGUS
 </div>
 </section>
 
+<!-- About / Company -->
+<section class="about" id="about">
+<div class="fade-in">
+<div class="section-tag" data-i18n="about.tag">Company</div>
+<div class="section-title" data-i18n="about.title">About Argus Security</div>
+<div class="about-grid">
+<div class="about-company">
+<h3 data-i18n="about.company">Argus Security, Inc.</h3>
+<div class="about-meta" data-i18n="about.meta">Delaware C-Corp · Founded April 2026</div>
+<p data-i18n="about.p1">Independent compliance audit body for AI agents. We provide deterministic static analysis, signed audit reports, and compliance certification — the procurement gate enterprises need before deploying agents in production.</p>
+<p data-i18n="about.p2">Our audit methodology is grounded in original CVE research (MITRE, MSRC) and aligned with the OWASP Agentic Security Initiative Top 10.</p>
+</div>
+<div class="team-grid">
+<div class="team-card">
+<div class="team-name">Heady Zhang</div>
+<div class="team-title" data-i18n="about.role1">Founder &amp; CEO</div>
+<div class="team-bg" data-i18n="about.bg1">SJTU → USC · Ex-Temu, Topify.ai</div>
+<div class="team-detail" data-i18n="about.det1">AI agent security · Built audit methodology adopted by publicly listed enterprise</div>
+</div>
+<div class="team-card">
+<div class="team-name">Justin Yuan</div>
+<div class="team-title" data-i18n="about.role2">Co-founder &amp; CTO</div>
+<div class="team-bg" data-i18n="about.bg2">SJTU → USC · Dynabridge, Topify.ai</div>
+<div class="team-detail" data-i18n="about.det2">Full-stack engineering · Platform architecture</div>
+</div>
+<div class="team-card">
+<div class="team-name">Prof. Yue Zhao</div>
+<div class="team-title" data-i18n="about.role3">Honorary Scientific Advisor</div>
+<div class="team-bg" data-i18n="about.bg3">USC CS Assistant Professor · CMU PhD</div>
+<div class="team-detail" data-i18n="about.det3">PyOD author · 22K+ GitHub stars · 38M+ downloads · 12K+ academic citations</div>
+<div class="team-disclaimer" data-i18n="about.disc">Personal capacity. USC does not endorse Argus.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Traction -->
+<section class="traction" id="traction">
+<div class="fade-in">
+<div class="section-tag" data-i18n="traction.tag">Customers</div>
+<div class="section-title" data-i18n="traction.title">Enterprise Traction</div>
+<div class="traction-card">
+<h3 data-i18n="traction.card.h">First Enterprise Customer Signed</h3>
+<p data-i18n="traction.card.p1">HKEX-listed integrated healthcare group. Strict compliance requirements. Highly sensitive consumer health data.</p>
+<p data-i18n="traction.card.p2">Customer embedded Argus's 7-Dimension Audit Framework into their internal PRD as the project evaluation standard. From service vendor to standard setter — in 3 meetings.</p>
+</div>
+<div class="traction-stats">
+<div class="traction-stat">
+<div class="num">14 days</div>
+<div class="lbl" data-i18n="traction.s1">Audit delivery cycle</div>
+</div>
+<div class="traction-stat">
+<div class="num">120+</div>
+<div class="lbl" data-i18n="traction.s2">Deterministic detection rules</div>
+</div>
+<div class="traction-stat">
+<div class="num">3</div>
+<div class="lbl" data-i18n="traction.s3">CVEs filed and merged (MITRE + MSRC)</div>
+</div>
+</div>
+</div>
+</section>
+
 <!-- Credibility -->
 <section class="cred" id="cred">
 <div class="cred-inner fade-in">
 <div class="section-tag" data-i18n="cred.tag">Trusted by the Ecosystem</div>
 <div class="section-title" data-i18n="cred.title">Vulnerabilities Filed With</div>
 <div class="cred-row">
-<div class="cred-badge">Microsoft AutoGen</div>
-<div class="cred-badge">AWS MCP</div>
-<div class="cred-badge">ByteDance</div>
-<div class="cred-badge">CrewAI</div>
-<div class="cred-badge">LangGraph</div>
-<div class="cred-badge">Pydantic AI</div>
-<div class="cred-badge">Coinbase x402</div>
-<div class="cred-badge">DataStax Langflow</div>
+<div class="cred-badge">
+<span>Microsoft AutoGen</span>
+<span style="color:var(--text-muted);font-family:var(--mono);font-size:11px">MSRC VULN-181367, 181368</span>
+<a class="cred-link" href="https://github.com/microsoft/autogen" target="_blank" rel="noopener" aria-label="Microsoft AutoGen disclosure">
+<svg viewBox="0 0 24 24"><path d="M10 14L21 3M21 3h-7M21 3v7M19 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h7"/></svg>
+</a>
+</div>
+<div class="cred-badge">
+<span>CrewAI</span>
+<span style="color:var(--text-muted);font-family:var(--mono);font-size:11px">MITRE #2021148 · PR #5307</span>
+<a class="cred-link" href="https://github.com/crewAIInc/crewAI/pull/5307" target="_blank" rel="noopener" aria-label="CrewAI PR #5307">
+<svg viewBox="0 0 24 24"><path d="M10 14L21 3M21 3h-7M21 3v7M19 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h7"/></svg>
+</a>
+</div>
+</div>
+<div class="cred-additional">
+<span class="lbl" data-i18n="cred.additional.lbl">Additional frameworks assessed</span>
+<span data-i18n="cred.additional.list">AWS MCP · ByteDance · LangGraph · Pydantic AI · Coinbase x402 · DataStax Langflow</span>
 </div>
 <div class="cred-pubs">
-<div class="cred-pub"><span class="dot-green"></span><span data-i18n="cred.pub1">ACL 2026 — Published</span></div>
-<div class="cred-pub"><span class="dot-yellow"></span><span data-i18n="cred.pub2">NeurIPS 2026 — In Review</span></div>
+<div class="cred-pub"><span class="dot-green"></span><span data-i18n="cred.pub1">ACL 2026 — Accepted (Auditable Agents, KnowFM Workshop)</span></div>
+<div class="cred-pub"><span class="dot-yellow"></span><span data-i18n="cred.pub2">NeurIPS 2026 — Submitted (TrustAgent)</span></div>
 <div class="cred-pub"><span class="dot-green"></span><span data-i18n="cred.pub3">OWASP Agentic Top 10 — Aligned</span></div>
 </div>
 </div>
@@ -349,6 +489,7 @@ ARGUS
 </ul>
 </div>
 </div>
+<div class="report-disclaimer fade-in" data-i18n="report.disclaimer">Sample report for demonstration purposes. Actual client reports are confidential.</div>
 </section>
 
 <!-- CTA -->
@@ -359,9 +500,9 @@ ARGUS
 <div class="hero-btns" style="justify-content:center">
 <a href="https://github.com/HeadyZhang/agent-audit" target="_blank" class="btn-primary" data-i18n="cta.btn">Get Started on GitHub →</a>
 </div>
-<div class="cta-price" data-i18n="cta.price">Enterprise audit starting at $5,000 · Free for open-source</div>
+<div class="cta-price" data-i18n="cta.price">Enterprise audit packages available · Contact for scoping</div>
 <div class="contact-row">
-<div class="contact-item"><span>Email</span> haiyuez@usc.edu</div>
+<div class="contact-item"><span>Email</span> heady@argus-security.dev</div>
 <div class="contact-item"><span>GitHub</span> agent-audit</div>
 <div class="contact-item"><span data-i18n="cta.wechat">WeChat</span> real_heady</div>
 </div>
@@ -370,7 +511,8 @@ ARGUS
 
 <!-- Footer -->
 <footer>
-<p data-i18n="footer">© 2026 Argus Security · Backed by research from USC, CMU, and AWS · All rights reserved.</p>
+<p data-i18n="footer.line1">© 2026 Argus Security, Inc. · Delaware C-Corp · All rights reserved.</p>
+<p data-i18n="footer.line2">heady@argus-security.dev · GitHub: agent-audit</p>
 </footer>
 
 <script>
@@ -408,12 +550,14 @@ const i18n = {
   zh: {
     'nav.evidence': '数据',
     'nav.how': '工作原理',
+    'nav.about': '关于',
+    'nav.traction': '客户',
     'nav.report': '报告',
     'nav.blog': '博客',
     'nav.cta': '免费扫描 →',
     'hero.badge': '120+ 检测规则 · OWASP Agentic Top 10',
     'hero.title': '你的 Agent，<br><span>安全可信。</span>',
-    'hero.desc': '面向 AI Agent 的独立安全审计与合规认证。一次扫描，完整报告，企业级交付。',
+    'hero.desc': '面向 AI Agent 的独立安全审计与合规认证。一次扫描，完整报告,企业级交付。',
     'hero.scan': '免费扫描',
     'hero.report': '查看示例报告 →',
     'stats.label': 'Agent 安全现状',
@@ -433,10 +577,36 @@ const i18n = {
     'how.step3': '03 — 认证',
     'how.h3': '认证',
     'how.p3': '独立第三方安全认证。这是你的企业客户在生产环境部署 Agent 之前所需的信任凭证。',
+    'about.tag': '公司',
+    'about.title': '关于 Argus Security',
+    'about.company': 'Argus Security, Inc.',
+    'about.meta': '特拉华州 C-Corp · 创立于 2026 年 4 月',
+    'about.p1': '面向 AI Agent 的独立合规审计机构。我们提供确定性静态分析、签名审计报告与合规认证 — 这是企业在生产环境部署 Agent 之前所需的采购把关。',
+    'about.p2': '我们的审计方法基于原创 CVE 研究（MITRE、MSRC），并与 OWASP Agentic Security Initiative Top 10 对齐。',
+    'about.role1': '创始人 & CEO',
+    'about.bg1': 'SJTU → USC · 前 Temu, Topify.ai',
+    'about.det1': 'AI Agent 安全 · 构建被上市企业采用的审计方法论',
+    'about.role2': '联合创始人 & CTO',
+    'about.bg2': 'SJTU → USC · Dynabridge, Topify.ai',
+    'about.det2': '全栈工程 · 平台架构',
+    'about.role3': '荣誉科学顾问（个人身份）',
+    'about.bg3': 'USC 计算机系助理教授 · CMU 博士',
+    'about.det3': 'PyOD 作者 · 22K+ GitHub Stars · 38M+ 下载量 · 12K+ 学术引用',
+    'about.disc': '个人身份。USC 不为 Argus 背书。',
+    'traction.tag': '客户',
+    'traction.title': '企业客户进展',
+    'traction.card.h': '首位企业客户已签约',
+    'traction.card.p1': '港交所上市综合医疗集团。严格的合规要求。高敏感性消费者健康数据。',
+    'traction.card.p2': '客户已将 Argus 的 7 维度审计框架写入其内部 PRD，作为项目评估标准。从服务供应商到标准制定者 — 仅用 3 次会议。',
+    'traction.s1': '审计交付周期',
+    'traction.s2': '确定性检测规则',
+    'traction.s3': '已提交并合并的 CVE（MITRE + MSRC）',
     'cred.tag': '受生态信赖',
     'cred.title': '已向以下项目提交漏洞',
-    'cred.pub1': 'ACL 2026 — 已发表',
-    'cred.pub2': 'NeurIPS 2026 — 审稿中',
+    'cred.additional.lbl': '其他已评估框架',
+    'cred.additional.list': 'AWS MCP · ByteDance · LangGraph · Pydantic AI · Coinbase x402 · DataStax Langflow',
+    'cred.pub1': 'ACL 2026 — 已录用（Auditable Agents, KnowFM Workshop）',
+    'cred.pub2': 'NeurIPS 2026 — 投稿中（TrustAgent）',
     'cred.pub3': 'OWASP Agentic Top 10 — 已对齐',
     'report.badge': 'ARGUS 审计报告',
     'report.meta': 'ARGUS-2026-0042 · 2026-04-11 · 22 页 · 机密',
@@ -448,12 +618,14 @@ const i18n = {
     'report.f3': 'OWASP Agentic Top 10 合规矩阵',
     'report.f4': '按优先级排列的修复路线图',
     'report.f5': '审计方法论与严重性定义',
+    'report.disclaimer': '示例报告仅用于演示。实际客户报告均为机密。',
     'cta.h': '立即保障你的 Agent 安全',
     'cta.p': '开源项目免费扫描。企业审计提供品牌化报告与合规映射。',
     'cta.btn': '前往 GitHub 开始使用 →',
-    'cta.price': '企业审计起价 $5,000 · 开源项目免费',
+    'cta.price': '提供企业审计套餐 · 联系我们以确定项目范围',
     'cta.wechat': '微信',
-    'footer': '© 2026 Argus Security · 基于 USC、CMU 和 AWS 的研究成果 · 保留所有权利。'
+    'footer.line1': '© 2026 Argus Security, Inc. · 特拉华州 C-Corp · 保留所有权利。',
+    'footer.line2': 'heady@argus-security.dev · GitHub: agent-audit'
   }
 };
 
