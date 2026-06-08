@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Argus Security — Independent Compliance Certification for AI Agents</title>
-<meta name="description" content="Independent security audit and compliance certification body for AI agents. Deterministic static analysis. 120+ detection rules. OWASP Agentic Top 10 aligned.">
+<meta name="description" content="Independent security audit and compliance certification body for AI agents. Deterministic static analysis. 51 detection rules. OWASP Agentic Top 10 aligned.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -213,6 +213,11 @@ nav{position:fixed;top:0;width:100%;height:64px;padding:0 40px;display:flex;just
 .traction-stat:hover{border-color:var(--border-active);background:var(--surface-md);transform:translateY(-2px)}
 .traction-stat .num{font-size:36px;font-weight:700;color:var(--green);font-family:var(--mono);line-height:1;letter-spacing:-0.02em}
 .traction-stat .lbl{font-size:13px;color:var(--text-dim);margin-top:10px;letter-spacing:-0.005em}
+.traction-extras{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:40px auto 0;text-align:left}
+.traction-extra{padding:24px 22px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface-inner);transition:all .3s ease}
+.traction-extra:hover{border-color:var(--border-active);background:var(--surface-base);transform:translateY(-2px)}
+.traction-extra-tag{font-size:10px;color:var(--green);font-family:var(--mono);font-weight:600;letter-spacing:2px;margin-bottom:12px}
+.traction-extra-body{font-size:13px;color:var(--text-dim);line-height:1.65;letter-spacing:-0.005em}
 
 /* Vulnerability link icon */
 .cred-badge{display:inline-flex;align-items:center;gap:8px}
@@ -250,6 +255,7 @@ nav{padding:0 20px}
 .traction{padding:80px 20px}
 .traction-card{padding:32px 24px}
 .traction-stats{grid-template-columns:1fr}
+.traction-extras{grid-template-columns:1fr}
 .cta{padding:80px 20px}
 .hero-btns{flex-direction:column}
 .btn-primary,.btn-secondary{width:100%;justify-content:center}
@@ -287,9 +293,9 @@ ARGUS
 
 <!-- Hero -->
 <section class="hero">
-<div class="hero-badge"><span class="dot"></span><span data-i18n="hero.badge">120+ Detection Rules · OWASP Agentic Top 10</span></div>
-<h1 data-i18n="hero.title" data-i18n-html="true">Your Agents.<br><span>Verified Secure.</span></h1>
-<p data-i18n="hero.desc">Independent security audit and compliance certification for AI agents. One scan. Full report. Enterprise-ready.</p>
+<div class="hero-badge"><span class="dot"></span><span data-i18n="hero.badge">51 Detection Rules · OWASP Agentic Top 10</span></div>
+<h1 data-i18n="hero.title" data-i18n-html="true">Independent Audit<br>for <span>AI Agents.</span></h1>
+<p data-i18n="hero.desc">The signed third-party attestation enterprise procurement requires before an AI agent goes into production. We detect and attest. We never touch the agent. (Phase 1 delivered.)</p>
 <div class="hero-btns">
 <a href="https://github.com/HeadyZhang/agent-audit" target="_blank" class="btn-primary">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
@@ -302,23 +308,23 @@ ARGUS
 <!-- Stats -->
 <section class="stats" id="stats">
 <div class="stats-inner fade-in">
-<div class="stats-label" data-i18n="stats.label">The Agent Security Gap</div>
-<div class="stats-headline" data-i18n="stats.headline">We scanned the ecosystem. Every project failed.</div>
+<div class="stats-label" data-i18n="stats.label">ACL 2026 Workshop · Peer-Reviewed Evidence</div>
+<div class="stats-headline" data-i18n="stats.headline">Where Semgrep and Bandit see nothing.</div>
 <div class="stats-grid">
 <div class="stat-card">
-<div class="stat-num">115</div>
-<div class="stat-label" data-i18n="stats.s1">Open-source agent projects scanned</div>
+<div class="stat-num">617</div>
+<div class="stat-label" data-i18n="stats.s1">Findings across 6 open-source agent projects</div>
 </div>
 <div class="stat-card">
-<div class="stat-num">5,283</div>
-<div class="stat-label" data-i18n="stats.s2">Security findings detected</div>
+<div class="stat-num">269</div>
+<div class="stat-label" data-i18n="stats.s2">Critical-severity findings</div>
 </div>
 <div class="stat-card">
-<div class="stat-num">100%</div>
-<div class="stat-label" data-i18n="stats.s3">Projects with critical vulnerabilities</div>
+<div class="stat-num">0</div>
+<div class="stat-label" data-i18n="stats.s3">Agent-specific findings from Semgrep / Bandit</div>
 </div>
 </div>
-<div class="stats-footnote" data-i18n="stats.footnote" data-i18n-html="true">Traditional security tools (Semgrep, Bandit) detect <strong>zero</strong> agent-specific vulnerabilities on the same codebases. Tested across CrewAI, LangGraph, AutoGen, and 20+ other frameworks.</div>
+<div class="stats-footnote" data-i18n="stats.footnote" data-i18n-html="true">Peer-reviewed research, ACL 2026 workshop. Traditional security tools (Semgrep, Bandit) detect <strong>zero</strong> agent-specific vulnerabilities on the same codebases.</div>
 </div>
 </section>
 
@@ -334,7 +340,7 @@ ARGUS
 <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
 </div>
 <h3 data-i18n="how.h1">Detect</h3>
-<p data-i18n="how.p1">One command scans your agent code. 120+ detection rules covering prompt injection, insecure tool use, credential exposure, and all OWASP Agentic Top 10 categories.</p>
+<p data-i18n="how.p1">One command scans your agent code. 51 detection rules covering prompt injection, insecure tool use, credential exposure, and all OWASP Agentic Top 10 categories.</p>
 </div>
 <div class="how-card">
 <div class="how-step" data-i18n="how.step2">02 — REPORT</div>
@@ -366,26 +372,26 @@ ARGUS
 <h3 data-i18n="about.company">Argus Security, Inc.</h3>
 <div class="about-meta" data-i18n="about.meta">Delaware C-Corp · Founded April 2026</div>
 <p data-i18n="about.p1">Independent compliance audit body for AI agents. We provide deterministic static analysis, signed audit reports, and compliance certification — the procurement gate enterprises need before deploying agents in production.</p>
-<p data-i18n="about.p2">Our audit methodology is grounded in original CVE research (MITRE, MSRC) and aligned with the OWASP Agentic Security Initiative Top 10.</p>
+<p data-i18n="about.p2">Our audit methodology is grounded in original vulnerability research and responsible disclosure, and aligned with the OWASP Agentic Security Initiative Top 10.</p>
 </div>
 <div class="team-grid">
 <div class="team-card">
 <div class="team-name">Heady Zhang</div>
 <div class="team-title" data-i18n="about.role1">Founder &amp; CEO</div>
-<div class="team-bg" data-i18n="about.bg1">SJTU → USC · Ex-Temu, Topify.ai</div>
+<div class="team-bg" data-i18n="about.bg1">SJTU → USC · Ex founding engineer building production agents</div>
 <div class="team-detail" data-i18n="about.det1">AI agent security · Built audit methodology adopted by publicly listed enterprise</div>
 </div>
 <div class="team-card">
 <div class="team-name">Justin Yuan</div>
 <div class="team-title" data-i18n="about.role2">Co-founder &amp; CTO</div>
-<div class="team-bg" data-i18n="about.bg2">SJTU → USC · Dynabridge, Topify.ai</div>
+<div class="team-bg" data-i18n="about.bg2">SJTU → USC</div>
 <div class="team-detail" data-i18n="about.det2">Full-stack engineering · Platform architecture</div>
 </div>
 <div class="team-card">
 <div class="team-name">Prof. Yue Zhao</div>
-<div class="team-title" data-i18n="about.role3">Honorary Scientific Advisor</div>
+<div class="team-title" data-i18n="about.role3">Scientific Advisor</div>
 <div class="team-bg" data-i18n="about.bg3">USC CS Assistant Professor · CMU PhD</div>
-<div class="team-detail" data-i18n="about.det3">PyOD author · 22K+ GitHub stars · 38M+ downloads · 12K+ academic citations</div>
+<div class="team-detail" data-i18n="about.det3">PyOD author · 9.8K+ GitHub stars · 42M+ downloads</div>
 <div class="team-disclaimer" data-i18n="about.disc">Personal capacity. USC does not endorse Argus.</div>
 </div>
 </div>
@@ -401,7 +407,7 @@ ARGUS
 <div class="traction-card">
 <h3 data-i18n="traction.card.h">First Enterprise Customer Signed</h3>
 <p data-i18n="traction.card.p1">HKEX-listed integrated healthcare group. Strict compliance requirements. Highly sensitive consumer health data.</p>
-<p data-i18n="traction.card.p2">Customer embedded Argus's 7-Dimension Audit Framework into their internal PRD as the project evaluation standard. From service vendor to standard setter — in 3 meetings.</p>
+<p data-i18n="traction.card.p2">Customer embedded Argus's 7-Dimension Audit Framework into their internal PRD as the project evaluation standard. (Phase 1 delivered.)</p>
 </div>
 <div class="traction-stats">
 <div class="traction-stat">
@@ -409,12 +415,26 @@ ARGUS
 <div class="lbl" data-i18n="traction.s1">Audit delivery cycle</div>
 </div>
 <div class="traction-stat">
-<div class="num">120+</div>
+<div class="num">51</div>
 <div class="lbl" data-i18n="traction.s2">Deterministic detection rules</div>
 </div>
 <div class="traction-stat">
-<div class="num">3</div>
-<div class="lbl" data-i18n="traction.s3">CVEs filed and merged (MITRE + MSRC)</div>
+<div class="num">CrewAI</div>
+<div class="lbl" data-i18n="traction.s3">RCE disclosed and patched (PR #5307); AutoGen + AWS MCP in review</div>
+</div>
+</div>
+<div class="traction-extras">
+<div class="traction-extra">
+<div class="traction-extra-tag" data-i18n="traction.extra1.tag">OPEN-SOURCE ENGINE</div>
+<div class="traction-extra-body" data-i18n="traction.extra1.body">180 GitHub stars · F1=0.84 reproducible from the public repo · 1,500+ tests gated in CI.</div>
+</div>
+<div class="traction-extra">
+<div class="traction-extra-tag" data-i18n="traction.extra2.tag">AWS MCP</div>
+<div class="traction-extra-body" data-i18n="traction.extra2.body">Validated SQL injection in AWS's official MCP repository. HackerOne triage complete, pending AWS review.</div>
+</div>
+<div class="traction-extra">
+<div class="traction-extra-tag" data-i18n="traction.extra3.tag">YC PORTFOLIO</div>
+<div class="traction-extra-body" data-i18n="traction.extra3.body">Completed an independent Phase 1 security audit of a YC-backed agent-payments platform, surfacing a HIGH-severity finding that three industry-standard static analyzers missed.</div>
 </div>
 </div>
 </div>
@@ -427,16 +447,9 @@ ARGUS
 <div class="section-title" data-i18n="cred.title">Vulnerabilities Filed With</div>
 <div class="cred-row">
 <div class="cred-badge">
-<span>Microsoft AutoGen</span>
-<span style="color:var(--text-muted);font-family:var(--mono);font-size:11px">MSRC VULN-181367, 181368</span>
-<a class="cred-link" href="https://github.com/microsoft/autogen" target="_blank" rel="noopener" aria-label="Microsoft AutoGen disclosure">
-<svg viewBox="0 0 24 24"><path d="M10 14L21 3M21 3h-7M21 3v7M19 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h7"/></svg>
-</a>
-</div>
-<div class="cred-badge">
 <span>CrewAI</span>
-<span style="color:var(--text-muted);font-family:var(--mono);font-size:11px">MITRE #2021148 · PR #5307</span>
-<a class="cred-link" href="https://github.com/crewAIInc/crewAI/pull/5307" target="_blank" rel="noopener" aria-label="CrewAI PR #5307">
+<span style="color:var(--text-muted);font-family:var(--mono);font-size:11px">Issues #5056, #5057 · PR #5307</span>
+<a class="cred-link" href="https://github.com/crewAIInc/crewAI/issues/5056" target="_blank" rel="noopener" aria-label="CrewAI security issue #5056">
 <svg viewBox="0 0 24 24"><path d="M10 14L21 3M21 3h-7M21 3v7M19 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h7"/></svg>
 </a>
 </div>
@@ -447,7 +460,6 @@ ARGUS
 </div>
 <div class="cred-pubs">
 <div class="cred-pub"><span class="dot-green"></span><a href="https://arxiv.org/abs/2604.05485" target="_blank" rel="noopener" data-i18n="cred.pub1">ACL 2026 — Accepted (Auditable Agents, KnowFM Workshop)</a></div>
-<div class="cred-pub"><span class="dot-yellow"></span><span data-i18n="cred.pub2">NeurIPS 2026 — Submitted (TrustAgent)</span></div>
 <div class="cred-pub"><span class="dot-green"></span><span data-i18n="cred.pub3">OWASP Agentic Top 10 — Aligned</span></div>
 </div>
 </div>
@@ -532,9 +544,9 @@ entries.forEach(e => {
 if(e.isIntersecting && !e.target.dataset.animated) {
 e.target.dataset.animated = 'true';
 const nums = e.target.querySelectorAll('.stat-num');
-animateNum(nums[0], 115);
-animateNum(nums[1], 5283);
-nums[2].textContent = '100%';
+animateNum(nums[0], 617);
+animateNum(nums[1], 269);
+nums[2].textContent = '0';
 }
 });
 }, {threshold: 0.3});
@@ -550,22 +562,22 @@ const i18n = {
     'nav.report': '报告',
     'nav.blog': '博客',
     'nav.cta': '免费扫描 →',
-    'hero.badge': '120+ 检测规则 · OWASP Agentic Top 10',
-    'hero.title': '你的 Agent，<br><span>安全可信。</span>',
-    'hero.desc': '面向 AI Agent 的独立安全审计与合规认证。一次扫描，完整报告,企业级交付。',
+    'hero.badge': '51 项检测规则 · OWASP Agentic Top 10',
+    'hero.title': 'AI Agent 的<br><span>独立第三方审计。</span>',
+    'hero.desc': '企业采购在 AI Agent 上线生产前所需的签名第三方审计声明。我们只做检测与背书，绝不触碰 Agent 本身。（Phase 1 已交付。）',
     'hero.scan': '免费扫描',
     'hero.report': '查看示例报告 →',
-    'stats.label': 'Agent 安全现状',
-    'stats.headline': '我们扫描了整个生态，所有项目均未通过。',
-    'stats.s1': '已扫描的开源 Agent 项目',
-    'stats.s2': '检测到的安全问题',
-    'stats.s3': '存在严重漏洞的项目比例',
-    'stats.footnote': '传统安全工具（Semgrep、Bandit）在相同代码库上检测到的 Agent 特定漏洞数量为<strong>零</strong>。已在 CrewAI、LangGraph、AutoGen 等 20+ 框架上测试验证。',
+    'stats.label': 'ACL 2026 Workshop · 同行评审实证',
+    'stats.headline': '在 Semgrep 和 Bandit 看不见的地方。',
+    'stats.s1': '6 个开源 Agent 项目中的发现总数',
+    'stats.s2': '严重级别发现数',
+    'stats.s3': 'Semgrep / Bandit 检测到的 Agent 特定漏洞数',
+    'stats.footnote': '同行评审研究，ACL 2026 Workshop。传统安全工具（Semgrep、Bandit）在相同代码库上检测到的 Agent 特定漏洞数量为<strong>零</strong>。',
     'how.tag': 'Argus 工作原理',
     'how.title': '扫描 · 报告 · 认证',
     'how.step1': '01 — 扫描',
     'how.h1': '检测',
-    'how.p1': '一条命令扫描你的 Agent 代码。120+ 检测规则覆盖提示注入、不安全工具调用、凭证泄露，以及 OWASP Agentic Top 10 全部类别。',
+    'how.p1': '一条命令扫描你的 Agent 代码。51 项检测规则覆盖提示注入、不安全工具调用、凭证泄露，以及 OWASP Agentic Top 10 全部类别。',
     'how.step2': '02 — 报告',
     'how.h2': '报告',
     'how.p2': '品牌化 PDF 审计报告，包含严重性评级、OWASP 合规矩阵、代码证据、修复路线图和执行摘要。',
@@ -577,31 +589,36 @@ const i18n = {
     'about.company': 'Argus Security, Inc.',
     'about.meta': '特拉华州 C-Corp · 创立于 2026 年 4 月',
     'about.p1': '面向 AI Agent 的独立合规审计机构。我们提供确定性静态分析、签名审计报告与合规认证 — 这是企业在生产环境部署 Agent 之前所需的采购把关。',
-    'about.p2': '我们的审计方法基于原创 CVE 研究（MITRE、MSRC），并与 OWASP Agentic Security Initiative Top 10 对齐。',
+    'about.p2': '我们的审计方法基于原创漏洞研究与负责任披露，并与 OWASP Agentic Security Initiative Top 10 对齐。',
     'about.role1': '创始人 & CEO',
-    'about.bg1': 'SJTU → USC · 前 Temu, Topify.ai',
+    'about.bg1': 'SJTU → USC · 曾任 Founding Engineer，构建生产级 Agent',
     'about.det1': 'AI Agent 安全 · 构建被上市企业采用的审计方法论',
     'about.role2': '联合创始人 & CTO',
-    'about.bg2': 'SJTU → USC · Dynabridge, Topify.ai',
+    'about.bg2': 'SJTU → USC',
     'about.det2': '全栈工程 · 平台架构',
-    'about.role3': '荣誉科学顾问（个人身份）',
+    'about.role3': '科学顾问（个人身份）',
     'about.bg3': 'USC 计算机系助理教授 · CMU 博士',
-    'about.det3': 'PyOD 作者 · 22K+ GitHub Stars · 38M+ 下载量 · 12K+ 学术引用',
+    'about.det3': 'PyOD 作者 · 9.8K+ GitHub Stars · 42M+ 下载量',
     'about.disc': '个人身份。USC 不为 Argus 背书。',
     'traction.tag': '客户',
     'traction.title': '企业客户进展',
     'traction.card.h': '首位企业客户已签约',
     'traction.card.p1': '港交所上市综合医疗集团。严格的合规要求。高敏感性消费者健康数据。',
-    'traction.card.p2': '客户已将 Argus 的 7 维度审计框架写入其内部 PRD，作为项目评估标准。从服务供应商到标准制定者 — 仅用 3 次会议。',
+    'traction.card.p2': '客户已将 Argus 的 7 维度审计框架写入其内部 PRD，作为项目评估标准。（Phase 1 已交付。）',
     'traction.s1': '审计交付周期',
     'traction.s2': '确定性检测规则',
-    'traction.s3': '已提交并合并的 CVE（MITRE + MSRC）',
+    'traction.s3': '已披露并修复的 CrewAI RCE（PR #5307）；AutoGen + AWS MCP 披露审核中',
+    'traction.extra1.tag': '开源引擎',
+    'traction.extra1.body': '180 个 GitHub Star · 从公开仓库可复现 F1=0.84 · CI 中 1,500+ 测试守门。',
+    'traction.extra2.tag': 'AWS MCP',
+    'traction.extra2.body': '已在 AWS 官方 MCP 仓库中验证 SQL 注入。HackerOne 已 triage 完成，待 AWS 复核。',
+    'traction.extra3.tag': 'YC 项目',
+    'traction.extra3.body': '完成对某 YC 投资的 Agent 支付平台的独立 Phase 1 安全审计，发现一项三家主流静态分析器均未检出的 HIGH 级别问题。',
     'cred.tag': '受生态信赖',
     'cred.title': '已向以下项目提交漏洞',
     'cred.additional.lbl': '其他已评估框架',
     'cred.additional.list': 'AWS MCP · ByteDance · LangGraph · Pydantic AI · Coinbase x402 · DataStax Langflow',
     'cred.pub1': 'ACL 2026 — 已录用（Auditable Agents, KnowFM Workshop）',
-    'cred.pub2': 'NeurIPS 2026 — 投稿中（TrustAgent）',
     'cred.pub3': 'OWASP Agentic Top 10 — 已对齐',
     'report.badge': 'ARGUS 审计报告',
     'report.meta': 'ARGUS-2026-0042 · 2026-04-11 · 22 页 · 机密',
