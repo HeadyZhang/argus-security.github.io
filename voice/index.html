@@ -18,7 +18,7 @@
   <meta property="og:image:alt" content="No-look pass. Work without a screen. Private beta.">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="./mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./style.css?v=scenic-1">
+  <link rel="stylesheet" href="./style.css?v=clean-1">
   <script src="./runtime-config.js" defer></script>
   <script src="./script.js?v=scenic-1" defer></script>
 </head>
@@ -26,17 +26,14 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header wrap">
     <a class="brand" href="#" aria-label="No-look pass home"><img src="./mark.svg" width="32" height="32" alt=""><span data-brand>No-look pass</span></a>
-    <nav aria-label="Main navigation"><a class="nav-workflow" href="#workflow">The feeling</a><a class="nav-access" href="#access">Request access <span aria-hidden="true">↗</span></a></nav>
+    <nav aria-label="Main navigation"><a class="nav-access" href="#access">Request access <span aria-hidden="true">↗</span></a></nav>
   </header>
 
   <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">
-      <div class="hero-kicker"><span class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Private beta · Request access</span><span class="edition">Voice interaction.</span></div>
       <h1 id="hero-title">Work without<br><em>a screen.</em></h1>
       <p class="hero-copy">Your AI briefs you on what matters. Clarify, decide, and steer—all by voice.</p>
       <a class="button primary" href="#access">Request private beta access <span aria-hidden="true">↗</span></a>
-      <p class="beta-note">We’re building the first version and recruiting its first testers.<br class="desktop-break"> We’ll follow up when it’s ready to try.</p>
-      <div class="hero-bottom"><span>Hear the essentials.<br>Steer by voice.</span><a href="#workflow">Picture your workday <span aria-hidden="true">↓</span></a><span class="hero-bottom-end">It briefs you.<br>You make the call.</span></div>
     </section>
 
     <section class="daydream wrap" id="workflow" aria-labelledby="daydream-title">
@@ -50,35 +47,31 @@
           <div class="speech speech-you"><span class="speech-speaker">You</span><p>“Check the project plan. What needs my decision?”</p></div>
           <div class="speech speech-ai"><span class="speech-speaker">Your AI</span><p>“Friday is tight. Cut scope or move the launch?”</p></div>
         </div>
-        <figcaption>A glimpse of the workday we’re building. Illustrated concept.</figcaption>
       </figure>
     </section>
 
-    <aside class="founder wrap" aria-label="A note from the founder"><span class="eyebrow">A personal starting point</span><div><blockquote>“AI was helping me do more work—and giving me more output to read. I wanted room to keep thinking, without staying glued to a screen.”</blockquote><p data-credit>prod by Heady</p></div></aside>
+    <aside class="founder wrap" aria-label="A note from the founder"><div><blockquote>“AI was helping me do more work—and giving me more output to read. I wanted room to keep thinking, without staying glued to a screen.”</blockquote></div></aside>
 
     <section class="access" id="access" aria-labelledby="access-title">
       <div class="wrap access-inner">
-        <span class="eyebrow"><span class="status-dot" aria-hidden="true"></span> An invitation to help shape what’s next</span>
         <h2 id="access-title">Hear what matters.<br><em>Say your next move.</em></h2>
-        <p class="access-copy">A briefing. A follow-up. A decision—all by voice.<br class="desktop-break"> Leave your email for a private beta invitation.</p>
+        <p class="access-copy">A briefing. A follow-up. A decision—all by voice.</p>
         <form id="beta-form" class="beta-form" novalidate>
           <fieldset id="beta-fields" disabled>
             <label for="beta-email">Your email</label>
             <div class="signup-row">
-              <input id="beta-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" inputmode="email" required maxlength="254" aria-describedby="email-error beta-privacy">
+              <input id="beta-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" inputmode="email" required maxlength="254" aria-describedby="email-error">
               <button id="beta-submit" class="button primary" type="submit"><span class="submit-label">Request private beta access</span><span aria-hidden="true">↗</span></button>
             </div>
             <p id="email-error" class="field-error" aria-live="polite"></p>
           </fieldset>
           <p id="beta-status" class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
-          <p id="beta-privacy" class="privacy-note">We’ll only use your email to follow up about this beta.</p>
           <noscript><p class="form-status">Please enable JavaScript to request access.</p></noscript>
           <p id="local-preview-note" class="local-preview-note" hidden>Local preview · requests are saved on this computer, not the live beta list.</p>
         </form>
-        <p class="access-status">We’re building the first version and recruiting its first testers.<br class="desktop-break"> We’ll follow up when it’s ready to try.</p>
       </div>
     </section>
   </main>
-  <footer class="site-footer wrap"><a class="brand" href="#"><img src="./mark.svg" width="26" height="26" alt=""><span data-brand>No-look pass</span></a><span data-credit>prod by Heady</span><span>Private beta · In development</span></footer>
+  <footer class="site-footer wrap"><a class="brand" href="#"><img src="./mark.svg" width="26" height="26" alt=""><span data-brand>No-look pass</span></a><span data-credit>prod by Heady</span></footer>
 </body>
 </html>
