@@ -1,0 +1,7 @@
+{
+  "name": "No-look pass",
+  "productionUrl": "https://argus-security.dev/voice/",
+  "description": "Work without a screen. Your AI briefs you on what matters. Clarify, decide, and steer—all by voice.",
+  "credit": "prod by Heady",
+  "signupEndpoint": "https://voice-beta-signups.heady-f40.workers.dev/api/beta"
+}

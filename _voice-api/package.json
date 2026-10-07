@@ -1,0 +1,16 @@
+{
+  "name": "voice-beta-signups",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --env local --ip 127.0.0.1 --port 8787 --persist-to /tmp/voice-beta-local-data",
+    "db:local": "wrangler d1 execute DB --env local --local --persist-to /tmp/voice-beta-local-data --file schema.sql",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "4.148.0"
+  },
+  "overrides": {
+    "sharp": "0.35.5"
+  }
+}
